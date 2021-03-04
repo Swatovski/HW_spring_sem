@@ -33,24 +33,24 @@ int main()
 
 	std::shuffle(std::begin(vec), std::end(vec), dre);
 
-	std::cout << "Shuffled\n";
+	/*std::cout << "Shuffled\n";
 	for (auto i : vec)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Sequence shuffled
 
 	std::sort(std::begin(vec), std::end(vec));
 	vec.erase(std::unique(std::begin(vec), std::end(vec)), std::end(vec));
 
-	std::cout << "Unique\n";
+	/*std::cout << "Unique\n";
 	for (auto i : vec)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Duplicates erased
 
@@ -58,16 +58,16 @@ int main()
 
 	std::for_each(std::begin(vec), std::end(vec), [&odd](auto i) {if (i % 2 != 0) { odd++; }});
 
-	std::cout << "Number of odd numbers in the sequence - " << odd << std::endl;
+	//std::cout << "Number of odd numbers in the sequence - " << odd << std::endl;
 
 	// Number of odds counted
 
 	auto res = std::minmax_element(std::begin(vec), std::end(vec));
 
-	std::cout << "Minimal - " << *res.first << " Maximal - " << *res.second << std::endl;
+	//std::cout << "Minimal - " << *res.first << " Maximal - " << *res.second << std::endl;
 
 	// Minimal and Maximal elements detected
-	
+
 	auto it = std::find_if(std::begin(vec), std::end(vec), [](auto x)
 		{for (auto i = x - 1; i > 1; i--)
 	{
@@ -78,20 +78,20 @@ int main()
 	}
 
 	return true;
-	});
+		});
 
-	std::cout << vec[*it - 1] << std::endl; 
-	
+	/*std::cout << vec[*it - 1] << std::endl;*/
+
 	// Prime number found
 
 	std::transform(std::begin(vec), std::end(vec), std::begin(vec), [](auto x) {return x * x; });
 
-	std::cout << "Squared\n";
+	/*std::cout << "Squared\n";
 	for (auto i : vec)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Replaced with squared
 
@@ -99,29 +99,29 @@ int main()
 
 	std::generate_n(std::back_inserter(vec_2), vec.size(), [&dre, &uid]() {return uid(dre); });
 
-	std::cout << "Vec_2\n";
+	/*std::cout << "Vec_2\n";
 	for (auto i : vec_2)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Second sequence created
 
 	auto result = std::accumulate(std::begin(vec_2), std::end(vec_2), 0);
 
-	std::cout << result << std::endl;
+	/*std::cout << result << std::endl;*/
 
 	// Summ of the second sequence counted
 
 	std::transform(std::begin(vec_2), std::next(std::begin(vec_2), 3), std::begin(vec_2), [](auto x) {return 1; });
 
-	std::cout << "Replaced with 1\n";
+	/*std::cout << "Replaced with 1\n";
 	for (auto i : vec_2)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Replaced with 1
 
@@ -129,64 +129,64 @@ int main()
 
 	std::transform(std::begin(vec), std::end(vec), std::begin(vec_2), std::back_inserter(vec_3), [](auto x1, auto x2) {return x1 - x2; });
 
-	std::cout << "Vec_3\n";
+	/*std::cout << "Vec_3\n";
 	for (auto i : vec_3)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Third sequence created
 
-	std::for_each(std::begin(vec_3), std::end(vec_3), [](auto &x) {x -= 20; }); // This is done for some negative numbers in the sequence
+	std::for_each(std::begin(vec_3), std::end(vec_3), [](auto& x) {x -= 20; }); // This is done for some negative numbers in the sequence
 
 	std::replace_if(std::begin(vec_3), std::end(vec_3), [](auto x) {return (x < 0); }, 0);
 
-	std::cout << "Replaced with zeros\n";
+	/*std::cout << "Replaced with zeros\n";
 	for (auto i : vec_3)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Replaced with zeros
 
 	vec_3.erase(std::remove_if(std::begin(vec_3), std::end(vec_3), [](auto x) {return (x == 0); }), std::end(vec_3));
 
-	std::cout << "Zeros erased\n";
+	/*std::cout << "Zeros erased\n";
 	for (auto i : vec_3)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Zeros erased
 
 	std::reverse(std::begin(vec_3), std::end(vec_3));
 
-	std::cout << "Reversed\n";
+	/*std::cout << "Reversed\n";
 	for (auto i : vec_3)
 	{
 		std::cout << i << ' ';
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	// Reversed
 
 	std::nth_element(std::begin(vec_3), std::end(vec_3) - 3, std::end(vec_3));
 
-	std::cout << "3 biggest elements\n";
-	std::for_each(std::end(vec_3) - 3, std::end(vec_3), [](auto x) {std::cout << x << ' '; });
+	/*std::cout << "3 biggest elements\n";
+	std::for_each(std::end(vec_3) - 3, std::end(vec_3), [](auto x) {std::cout << x << ' '; });*/
 
 	// 3 biggest elements
 
 	std::sort(std::begin(vec), std::end(vec));
 	std::sort(std::begin(vec_2), std::end(vec_2));
 
-	std::for_each(std::begin(vec), std::end(vec), [](auto x) {std::cout << x << ' '; });
-	std::cout << std::endl;
+	/*std::for_each(std::begin(vec), std::end(vec), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec " << std::endl;
 	std::for_each(std::begin(vec_2), std::end(vec_2), [](auto x) {std::cout << x << ' '; });
-	std::cout << std::endl;
+	std::cout << "Vec_2 " << std::endl;*/
 
 	// Sorted
 
@@ -195,9 +195,27 @@ int main()
 	std::copy(std::begin(vec), std::end(vec), std::back_inserter(vec_4));
 	std::copy(std::begin(vec_2), std::end(vec_2), std::back_inserter(vec_4));
 
+	/*std::for_each(std::begin(vec_4), std::end(vec_4), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec_4 " << std::endl;*/
+
 	// Sequence 4 done
 
+	std::sort(std::begin(vec_4), std::end(vec_4));
 
+	auto possible_range = std::count_if(std::begin(vec_4), std::end(vec_4), [](auto x) {return x == 1; });
+
+	std::cout << "You can put 1 at the positions from 0 to " << possible_range;
+
+	// Possible range of 1
+
+	std::for_each(std::begin(vec), std::end(vec), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec " << std::endl;
+	std::for_each(std::begin(vec_2), std::end(vec_2), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec_2 " << std::endl;
+	std::for_each(std::begin(vec_3), std::end(vec_3), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec_3 " << std::endl;
+	std::for_each(std::begin(vec_4), std::end(vec_4), [](auto x) {std::cout << x << ' '; });
+	std::cout << "Vec_4 " << std::endl;
 
 	return EXIT_SUCCESS;
 }
